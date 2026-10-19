@@ -339,7 +339,7 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-si
       <span>Toque em vários para os mover juntos</span>
       <span>× tira o conteúdo do dia</span>
       <span>Domingos sem gravações</span>
-      <span>Dia 30 (Halloween): até 2h, 80 €</span>
+      <span>Dia 30 (Halloween): até 2h, valor sob consulta</span>
     </div>
 
     <div class="board" id="board">
@@ -435,7 +435,7 @@ const ITEMS = [
   {id:"entardecer", g:"reg", n:"Clube ao entardecer", d:"Piscina e cenários do clube com a luz natural do fim do dia.", h:0.75, dows:[6], part:"tarde", ind:"Sábado ao fim da tarde", sug:"2026-10-27"},
   {id:"chef", g:"reg", n:"Chef no Healthy Bar", d:"O chef a cozinhar, com takes variados para divulgar o Healthy Bar. A partir daqui, uma receita por mês.", h:0.75, sug:"2026-10-27"},
 
-  {id:"halloween", g:"opt", n:"Halloween", d:"A equipa grava e envia à Audrey, ou a Audrey pode ir ao clube de Guimarães, pelo adicional de 80 € (2h de captação). Roteiro no fim da página.", h:2, fixed:"2026-10-30", ind:"Sexta, 30/10", sug:null}
+  {id:"halloween", g:"opt", n:"Halloween", d:"A equipa grava e envia à Audrey, ou a Audrey pode ir ao clube de Guimarães, como visita adicional, com valor sob consulta (2h de captação). Roteiro no fim da página.", h:2, fixed:"2026-10-30", ind:"Sexta, 30/10", sug:null}
 ];
 const BY_ID = Object.fromEntries(ITEMS.map(i=>[i.id,i]));
 const PLAN_HIDRO = {
@@ -451,7 +451,7 @@ const PLAN_HIDRO = {
 };
 const VID_NOTE="Também no roteiro do videógrafo: mostrar o clube e as instalações, principalmente as zonas novas de balneário, sauna e banho turco. São imagens para usar depois noutros conteúdos.";
 function vidNoteHTML(){ return `<div class="vnote"><b>Roteiro do videógrafo</b><p>${esc(VID_NOTE)}</p></div>`; }
-const HALLOWEEN_INFO="A equipa grava e envia à Audrey, ou a Audrey pode ir ao clube de Guimarães, pelo adicional de 80 € (2h de captação).";
+const HALLOWEEN_INFO="A equipa grava e envia à Audrey, ou a Audrey pode ir ao clube de Guimarães, como visita adicional, com valor sob consulta (2h de captação).";
 const PLAN_HALLOWEEN = {
   t:"Roteiro do Halloween · Día de los Muertos",
   steps:[
@@ -465,7 +465,7 @@ const PLAN_HALLOWEEN = {
 };
 function planFor(its){ return its.some(i=>i.id==="hidro") ? PLAN_HIDRO : its.some(i=>i.id==="halloween") ? PLAN_HALLOWEEN : null; }
 function planHTML(pl){ return `<div class="plan"><b>${esc(pl.t)}</b><ol>${pl.steps.map(([h,x])=>`<li><span>${esc(h)}</span>${esc(x)}</li>`).join("")}</ol><p>${esc(pl.prep)}</p></div>`; }
-const EVENTS = {"2026-10-30":"Halloween · a equipa grava, ou Audrey 2h por 80 €", "2026-11-11":"São Martinho · a equipa grava e envia à Audrey"};
+const EVENTS = {"2026-10-30":"Halloween · a equipa grava, ou Audrey 2h, valor sob consulta", "2026-11-11":"São Martinho · a equipa grava e envia à Audrey"};
 
 const DOW_S = ["dom.","seg.","ter.","qua.","qui.","sex.","sáb."];
 const DOW_L = ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"];
@@ -514,7 +514,7 @@ function dayInfo(dia){
   const its=itemsOn(dia), hrs=its.reduce((a,i)=>a+i.h,0), p=parse(dia);
   let price, kind, cap, consult=false;
   const vidDay=isVidDay(dia);
-  if(isShortVisit(dia)){ price=PRICE_HALLOWEEN; kind="Halloween · até 2h"; cap=2; }
+  if(isShortVisit(dia)){ price=PRICE_HALLOWEEN; kind="Halloween · até 2h"; cap=2; consult=true; }
   else if(vidDay){ price=0; kind="Dia do videógrafo"; cap=4; }
   else if(dia===includedNov()){ price=0; kind="Captação de novembro · incluída no plano"; cap=4; }
   else { price=PRICE_DAY; kind="Visita adicional"; cap=4; consult=true; }
@@ -657,7 +657,7 @@ function renderSug(){
       <ul>${lis}</ul>${info.vidDay?`<span class="evt vidtag">+ Clube e instalações: balneários novos, sauna e banho turco</span>`:""}${planFor(info.its)?`<span class="evt plantag">Atenção: Yoga e Hidro às 19h30 · ver plano no resumo</span>`:""}
       ${anyMoved?`<button type="button" class="linkbtn" data-backday="${d}" style="justify-self:start">Voltar o dia todo a esta sugestão</button>`:`<span class="ok">Igual na agenda</span>`}
     </div>`;
-  }).join("")+`<div class="sg sg-wide" id="halloween"><div class="sg-h"><b>sex. 30/10 · Halloween</b><span>Equipa: sem custo · Audrey: 80 €</span></div><p style="font-size:13.5px">${esc(HALLOWEEN_INFO)}</p>${planHTML(PLAN_HALLOWEEN)}</div><div class="sg sg-wide"><div class="sg-h"><b>qua. 11/11 · Dia de São Martinho</b><span>Equipa · sem custo</span></div><p style="font-size:13.5px">A equipa grava o conteúdo e envia à Audrey para editar. A Audrey indica antes as imagens necessárias.</p></div>`;
+  }).join("")+`<div class="sg sg-wide" id="halloween"><div class="sg-h"><b>sex. 30/10 · Halloween</b><span>Equipa: sem custo · Audrey: sob consulta</span></div><p style="font-size:13.5px">${esc(HALLOWEEN_INFO)}</p>${planHTML(PLAN_HALLOWEEN)}</div><div class="sg sg-wide"><div class="sg-h"><b>qua. 11/11 · Dia de São Martinho</b><span>Equipa · sem custo</span></div><p style="font-size:13.5px">A equipa grava o conteúdo e envia à Audrey para editar. A Audrey indica antes as imagens necessárias.</p></div>`;
 }
 function renderAll(){ renderView(); renderSug(); renderBank(); renderCals(); renderSummary(); renderSelbar();
   const ta=document.getElementById("notas"); if(document.activeElement!==ta) ta.value=state.notas||""; }
