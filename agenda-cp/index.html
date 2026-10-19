@@ -290,7 +290,7 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-si
           <li><span>1 visita incluída no plano mensal</span><b>Incluída</b></li>
           <li><span>2 visitas extra</span><b>Oferecidas</b></li>
         </ul>
-        <p>As duas visitas além do plano, o equivalente a 300 €, foram feitas sem qualquer custo adicional.</p>
+        <p>As duas visitas além do plano foram feitas sem qualquer custo adicional.</p>
       </div>
       <div class="rule">
         <span class="k">Incluído no plano mensal</span>
@@ -304,8 +304,8 @@ footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-si
       </div>
       <div class="rule">
         <span class="k">Cada dia extra de gravação</span>
-        <div class="big">150 €<small>até 4 horas</small></div>
-        <p>Podem ser gravados quantos conteúdos forem necessários. O valor já inclui a captação e a edição.</p>
+        <div class="big">Sob consulta<small style="display:block;margin-left:0">até 4 horas</small></div>
+        <p>Podem ser gravados quantos conteúdos forem necessários. O valor já inclui a captação e a edição. Consulte-nos o valor de cada dia extra de gravação.</p>
       </div>
       <div class="rule">
         <span class="k">Conta a visita, não o conteúdo</span>
@@ -512,15 +512,15 @@ function includedNov(){
 }
 function dayInfo(dia){
   const its=itemsOn(dia), hrs=its.reduce((a,i)=>a+i.h,0), p=parse(dia);
-  let price, kind, cap;
+  let price, kind, cap, consult=false;
   const vidDay=isVidDay(dia);
   if(isShortVisit(dia)){ price=PRICE_HALLOWEEN; kind="Halloween · até 2h"; cap=2; }
   else if(vidDay){ price=0; kind="Dia do videógrafo"; cap=4; }
   else if(dia===includedNov()){ price=0; kind="Captação de novembro · incluída no plano"; cap=4; }
-  else { price=PRICE_DAY; kind="Visita adicional"; cap=4; }
+  else { price=PRICE_DAY; kind="Visita adicional"; cap=4; consult=true; }
   const alerts=[];
     if(its.some(i=>i.part==="manha") && its.some(i=>i.part==="tarde")) alerts.push("Manhã e fim de tarde no mesmo dia não cabem em 4 horas seguidas");
-  return {its,hrs,price,kind,cap,alerts,vidDay,tone:vidDay?"vidday":isShortVisit(dia)||price>0?"extraday":"incday",vid:its.some(i=>i.g==="vid")};
+  return {its,hrs,price,kind,cap,consult,alerts,vidDay,tone:vidDay?"vidday":isShortVisit(dia)||price>0?"extraday":"incday",vid:its.some(i=>i.g==="vid")};
 }
 
 /* Banco de conteúdos */
@@ -582,7 +582,7 @@ function dayHTML(dia){
   let foot="";
   if(info.its.length){
     foot=`<div class="dfoot">
-      <div class="row">${info.vidDay?`<span class="price vidp">Videógrafo</span>`:`<span>Até ${info.cap}h</span><span class="price ${info.price?"extra":"inc"}">${info.price?eur(info.price):"Incluída"}</span>`}</div>
+      <div class="row">${info.vidDay?`<span class="price vidp">Videógrafo</span>`:`<span>Até ${info.cap}h</span><span class="price ${info.price?"extra":"inc"}">${info.consult?"Sob consulta":info.price?eur(info.price):"Incluída"}</span>`}</div>
       ${info.alerts.length?`<div class="row alert"><span>${info.alerts.length===1?"1 alerta":info.alerts.length+" alertas"}</span></div>`:""}
     </div>`;
   }
@@ -610,21 +610,21 @@ function renderSummary(){
       return `<div class="visit ${info.tone}">
         <div class="vd"><b>${short(dia)}</b>${info.vidDay?"":`<span>Até ${info.cap}h</span>`}${info.vid&&!info.vidDay?`<span>Com videógrafo</span>`:""}</div>
         <div style="display:grid;gap:12px;min-width:0"><ul>${lis}${info.alerts.map(a=>`<li><span class="w">${esc(a)}</span></li>`).join("")}</ul>${planFor(info.its)?`<div id="plano">${planHTML(planFor(info.its))}</div>`:""}${info.vidDay?vidNoteHTML():""}</div>
-        <div class="vp">${info.vidDay?`<b class="vidp">Videógrafo</b><span>Pago pela Mara diretamente · valor por confirmar</span>`:`<b class="${info.price?"":"inc"}">${info.price?eur(info.price):"0 €"}</b><span>${info.kind}</span>`}
+        <div class="vp">${info.vidDay?`<b class="vidp">Videógrafo</b><span>Pago pela Mara diretamente · valor por confirmar</span>`:`<b class="${info.price?"":"inc"}">${info.consult?"Sob consulta":info.price?eur(info.price):"0 €"}</b><span>${info.kind}</span>`}
           ${canInc?`<button type="button" class="linkbtn" data-inc="${dia}">Usar como captação incluída</button>`:""}</div>
       </div>`;
     }).join("");
   }
-  const extras=days.filter(d=>dayInfo(d).price>0), extraTot=extras.reduce((a,d)=>a+dayInfo(d).price,0);
+  const extras=days.filter(d=>dayInfo(d).price>0), extraTot=extras.reduce((a,d)=>a+(dayInfo(d).consult?0:dayInfo(d).price),0), anyConsult=extras.some(d=>dayInfo(d).consult), totLabel=anyConsult?(extraTot?eur(extraTot)+" + sob consulta":"Sob consulta"):eur(extraTot);
   const auDays=days.filter(d=>!dayInfo(d).vidDay), vds=days.filter(d=>dayInfo(d).vidDay), vd=vds.length;
   const total=ITEMS.filter(i=>i.g!=="opt").length, done=ITEMS.filter(i=>i.g!=="opt" && A()[i.id]).length;
   const ch=changedCount();
   document.getElementById("totals").innerHTML=`
     <div class="tot"><span class="k">Conteúdos com dia</span><span class="n">${done} / ${total}</span><p>${total-done?`Faltam ${total-done} por marcar.`:"Todos os conteúdos têm dia."}${!ro&&ch?` ${ch} ${ch===1?"alteração":"alterações"} à sugestão.`:""}</p></div>
     <div class="tot green"><span class="k">Incluída no plano</span><span class="n">${inc?short(inc):"Por marcar"}</span><p>Captação de novembro, já em outubro. Sem custo adicional.</p></div>
-    <div class="tot yellow"><span class="k">Visitas adicionais</span><span class="n">${eur(extraTot)}</span><p>${extras.length?extras.map(d=>`${short(d)} · ${eur(dayInfo(d).price)}`).join(", ")+". ":""}A somar à avença do mês em que acontecem.</p></div>
+    <div class="tot yellow"><span class="k">Visitas adicionais</span><span class="n">${totLabel}</span><p>${extras.length?extras.map(d=>`${short(d)} · ${dayInfo(d).consult?"valor sob consulta":eur(dayInfo(d).price)}`).join(", ")+". ":""}Consulte-nos o valor por cada dia adicional. A somar à avença do mês em que acontecem.</p></div>
     <div class="tot blue"><span class="k">Dias do videógrafo</span><span class="n">${vd} ${vd===1?"dia":"dias"}</span><p>${vd?vds.map(short).join(", ")+". ":""}Pagos pela Mara diretamente ao videógrafo, valor por confirmar.</p></div>
-    <div class="tot dark"><span class="k">Dias adicionais · total</span><span class="n">${eur(extraTot)}</span><p>${auDays.length} ${auDays.length===1?"dia":"dias"} da Audrey e do Kaiky, de até 4 horas de captação, com temas já pré-definidos. Sobrando tempo, podemos gravar outros conteúdos que surjam.</p></div>`;
+    <div class="tot dark"><span class="k">Dias adicionais · total</span><span class="n">${totLabel}</span><p>${auDays.length} ${auDays.length===1?"dia":"dias"} da Audrey e do Kaiky, de até 4 horas de captação, com temas já pré-definidos. Sobrando tempo, podemos gravar outros conteúdos que surjam.</p></div>`;
 }
 
 function renderView(){
@@ -653,7 +653,7 @@ function renderSug(){
       return `<li class="${mv?"mv":""}"><span>${esc(i.n)}${mv?`<em>${now?`Agora: ${short(now)}`:"Agora sem dia"}</em>`:""}</span>${mv?`<button type="button" class="linkbtn" data-back="${i.id}">Voltar</button>`:""}</li>`;
     }).join("");
     return `<div class="sg ${info.tone}">
-      <div class="sg-h"><b>${short(d)}</b><span>${info.vidDay?"Videógrafo":info.price?"Adicional · "+eur(info.price):"Incluída no plano"}</span></div>
+      <div class="sg-h"><b>${short(d)}</b><span>${info.vidDay?"Videógrafo":info.price?"Adicional · "+(info.consult?"sob consulta":eur(info.price)):"Incluída no plano"}</span></div>
       <ul>${lis}</ul>${info.vidDay?`<span class="evt vidtag">+ Clube e instalações: balneários novos, sauna e banho turco</span>`:""}${planFor(info.its)?`<span class="evt plantag">Atenção: Yoga e Hidro às 19h30 · ver plano no resumo</span>`:""}
       ${anyMoved?`<button type="button" class="linkbtn" data-backday="${d}" style="justify-self:start">Voltar o dia todo a esta sugestão</button>`:`<span class="ok">Igual na agenda</span>`}
     </div>`;
@@ -695,15 +695,15 @@ function agendaText(){
   const ch=changedCount();
   t+= ch ? `${ch} ${ch===1?"alteração":"alterações"} à sugestão da Audrey\n` : "Igual à sugestão da Audrey\n";
   days.forEach(d=>{ const info=dayInfo(d);
-    t+=`\n${short(d)} · ${info.vidDay?"videógrafo (pago pela Mara diretamente)":info.price?"visita adicional "+eur(info.price):"captação de novembro, incluída no plano"}\n`;
+    t+=`\n${short(d)} · ${info.vidDay?"videógrafo (pago pela Mara diretamente)":info.price?"visita adicional "+(info.consult?"(valor sob consulta)":eur(info.price)):"captação de novembro, incluída no plano"}\n`;
     info.its.forEach(i=>{ t+=`- ${i.n}${(SUG[i.id]||null)!==d?" (alterado)":""}\n`; });
     if(info.vidDay) t+=`  ${VID_NOTE}\n`;
     const pl=planFor(info.its); if(pl){ t+=`${pl.t}:\n`; pl.steps.forEach(([h,x])=>{ t+=`  ${h}: ${x}\n`; }); t+=`  ${pl.prep}\n`; }
   });
   const miss=ITEMS.filter(i=>i.g!=="opt" && !state.assign[i.id]);
   if(miss.length) t+=`\nSem dia: ${miss.map(i=>i.n).join(", ")}\n`;
-  const tot=days.reduce((a,d)=>a+dayInfo(d).price,0);
-  t+=`\nTotal adicional: ${eur(tot)} (videógrafo à parte)\n`;
+  const tot=days.reduce((a,d)=>a+(dayInfo(d).consult?0:dayInfo(d).price),0), totC=days.some(d=>dayInfo(d).consult);
+  t+=`\nTotal adicional: ${totC?(tot?eur(tot)+" + visitas adicionais sob consulta":"visitas adicionais sob consulta"):eur(tot)} (videógrafo à parte)\n`;
   if(state.notas) t+=`\nObservações: ${state.notas}\n`;
   view=prev; return t;
 }
