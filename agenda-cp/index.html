@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Agenda de Captações Corpo Perfeito</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap">
+<style>
+/* Layout: cabeçalho com as regras, depois banco de conteúdos (esquerda) e calendários de outubro e novembro (direita), resumo de valores no fim */
+:root{
+  --bg:#ffffff;
+  --surface:#f7f5f0;
+  --ink:#0d0d0c;
+  --ink-2:#55524a;
+  --ink-3:#8a857a;
+  --line:#e6e1d6;
+  --gold:#ab9b75;
+  --gold-ink:#7d6f4f;
+  --gold-soft:#efe9dc;
+  --chip-bg:#f1ede3;
+  --warn:#a5532f;
+  --warn-bg:#f8ebe4;
+  --ok:#4d6b4f;
+  --blue:#2f5d8a;
+  --green:#3f6b45;
+  --green-bg:#e6f0e3;
+  --yellow:#7d6410;
+  --yellow-bg:#faf1cf;
+  --blue-bg:#e7eef6;
+  --dark:#0d0d0c;
+  --on-dark:#f4f1ea;
+  --font:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0b0b0a;--surface:#151513;--ink:#f4f1ea;--ink-2:#bdb7aa;--ink-3:#8c877b;--line:#2a2823;
+    --gold:#ab9b75;--gold-ink:#c9b98f;--gold-soft:#24211b;--chip-bg:#1d1c19;--warn:#e0956f;--warn-bg:#2b1d16;--ok:#9cbf9d;--blue:#8fb6dc;--blue-bg:#16212c;--green:#9cc79f;--green-bg:#18241a;--yellow:#e3c869;--yellow-bg:#2a2410;
+    --dark:#1a1916;--on-dark:#f4f1ea;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0b0b0a;--surface:#151513;--ink:#f4f1ea;--ink-2:#bdb7aa;--ink-3:#8c877b;--line:#2a2823;
+  --gold:#ab9b75;--gold-ink:#c9b98f;--gold-soft:#24211b;--chip-bg:#1d1c19;--warn:#e0956f;--warn-bg:#2b1d16;--ok:#9cbf9d;--blue:#8fb6dc;--blue-bg:#16212c;--green:#9cc79f;--green-bg:#18241a;--yellow:#e3c869;--yellow-bg:#2a2410;
+  --dark:#1a1916;--on-dark:#f4f1ea;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--font);font-weight:400;font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 120px;
+}
+h1,h2,h3{font-weight:400;margin:0;text-wrap:balance}
+p{margin:0}
+button{font-family:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-ink)}
+.stars{color:var(--gold);letter-spacing:.35em;font-size:12px}
+
+/* Cabeçalho */
+.top{padding-block:52px 36px;display:grid;gap:16px;border-bottom:1px solid var(--line)}
+.top h1{font-size:clamp(28px,4.6vw,46px);letter-spacing:.06em;text-transform:uppercase;line-height:1.15}
+.lead{color:var(--ink-2);max-width:66ch}
+
+/* Regras */
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;border:1px solid var(--line);margin-top:32px}
+.rule{padding:22px;display:grid;gap:8px;align-content:start;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -1px -1px 0}
+.rule .k{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-ink)}
+.rule h3{font-size:17px;text-transform:uppercase;letter-spacing:.05em;line-height:1.3}
+.rule p{color:var(--ink-2);font-size:14px}
+.rule .big{font-size:30px;letter-spacing:.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+.rule .big small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-left:6px}
+.rule.dark{background:var(--dark);color:var(--on-dark)}
+.rule.dark p{color:color-mix(in srgb,var(--on-dark) 78%,transparent)}
+.rule.dark .k{color:var(--gold)}
+.rule.dark .big,.rule.dark .big small{color:var(--gold)}
+.rules{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+@media (min-width:900px){.rules{grid-template-columns:repeat(3,1fr)}}
+.done-list{list-style:none;margin:4px 0 2px;padding:0;display:grid;border-top:1px solid color-mix(in srgb,var(--gold) 45%,transparent)}
+.done-list li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid color-mix(in srgb,var(--gold) 45%,transparent);font-size:13.5px}
+.done-list b{font-weight:400;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);align-self:center}
+
+section{padding-block:44px 0}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:14px 24px;margin-bottom:20px}
+.sec-head > div{display:grid;gap:6px;min-width:0}
+.sec-head h2{font-size:22px;letter-spacing:.08em;text-transform:uppercase}
+.sec-head p{color:var(--ink-2);max-width:68ch;font-size:14px}
+
+.btn{font-size:10px;letter-spacing:.18em;text-transform:uppercase;background:transparent;color:var(--ink);border:1px solid var(--line);padding:9px 14px;cursor:pointer}
+.btn:hover{border-color:var(--gold)}
+.btn.solid{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn:focus-visible,.card:focus-visible,.day:focus-visible,.chip button:focus-visible{outline:1px solid var(--gold);outline-offset:2px}
+.btn[disabled]{opacity:.45;cursor:default}
+
+.howto{display:flex;flex-wrap:wrap;gap:8px 26px;font-size:13px;color:var(--ink-2);margin-bottom:18px}
+.howto span::before{content:"";display:inline-block;width:6px;height:6px;background:var(--gold);margin-right:9px;vertical-align:middle}
+.status{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.status.err{color:var(--warn)}
+
+/* Quadro */
+.board{display:grid;grid-template-columns:330px minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:980px){.board{grid-template-columns:1fr}}
+.bank{display:grid;gap:22px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);max-height:calc(100vh - 24px);overflow-y:auto;padding-right:4px}
+@media (max-width:980px){.bank{position:static;max-height:none;overflow:visible;padding-right:0}}
+.group{display:grid;gap:8px}
+.group-h{display:grid;gap:4px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.group-h h3{font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.group-h p{font-size:12.5px;color:var(--ink-2);line-height:1.5}
+
+
+.card{display:grid;grid-template-columns:16px 1fr;gap:10px;padding:11px 12px;border:1px solid var(--line);background:var(--bg);cursor:grab;user-select:none;-webkit-user-select:none;text-align:left;color:inherit;font:inherit;width:100%}
+.card:hover{border-color:var(--gold)}
+.card .box{width:14px;height:14px;border:1px solid var(--gold);margin-top:3px;display:grid;place-items:center}
+.card.sel{border-color:var(--ink);background:var(--gold-soft)}
+.card.sel .box{background:var(--ink);border-color:var(--ink)}
+.card.sel .box::after{content:"";width:6px;height:6px;background:var(--bg)}
+.card.done{background:var(--surface)}
+.card .t{font-size:14px;line-height:1.35;display:block}
+.card .d{font-size:12.5px;color:var(--ink-2);line-height:1.45;display:block;margin-top:3px}
+.card .m{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:7px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.card .m .when{color:var(--ok)}
+.card .m .vtag{color:var(--blue)}
+.card .m .ind{color:var(--ink-2)}
+.card.dragging{opacity:.4}
+
+/* Calendários */
+.cals{display:grid;gap:32px;min-width:0}
+.month-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.month-h h3{font-size:18px;letter-spacing:.1em;text-transform:uppercase}
+.month-h span{font-size:12px;color:var(--ink-2)}
+.cal-scroll{overflow-x:auto;border:1px solid var(--line)}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(84px,1fr));min-width:600px}
+.dow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);padding:9px 10px;border-bottom:1px solid var(--line);background:var(--surface)}
+.day{min-height:112px;padding:8px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:5px;font-size:12px;position:relative;background:var(--bg)}
+.day:nth-child(7n){border-right:0}
+.day.blank{background:var(--surface)}
+.day.past{background:var(--surface);color:var(--ink-3)}
+.day.past .num{opacity:.6}
+.day.closed{background:repeating-linear-gradient(135deg,var(--surface) 0 6px,var(--bg) 6px 12px);color:var(--ink-3)}
+.day .evt.muted{color:var(--ink-3)}
+.day.open{cursor:pointer}
+.day.open:hover{background:var(--gold-soft)}
+.day.over{background:var(--gold-soft);box-shadow:inset 0 0 0 1px var(--gold)}
+.day.has{background:var(--bg)}
+.day .top-row{display:flex;justify-content:space-between;align-items:center;gap:4px}
+.num{font-variant-numeric:tabular-nums;color:var(--ink-3);font-size:12px}
+.day.has .num{color:var(--ink)}
+.day .evt{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink);line-height:1.3}
+.chips{display:grid;gap:4px}
+.chip{display:grid;grid-template-columns:1fr auto;gap:4px;align-items:start;background:var(--chip-bg);padding:4px 4px 4px 7px;font-size:11px;line-height:1.3;border-left:2px solid var(--line);cursor:grab}
+.chip.vid{border-left-color:var(--blue);background:var(--blue-bg)}
+.day.incday,.sg.incday,.visit.incday{background:color-mix(in srgb,var(--green-bg) 70%,var(--bg))}
+.day.extraday,.sg.extraday,.visit.extraday{background:color-mix(in srgb,var(--yellow-bg) 70%,var(--bg))}
+.visit.vidday{background:color-mix(in srgb,var(--blue-bg) 55%,var(--bg))}
+.day .evt.inctag,.sg.incday .sg-h span,.dfoot .price.inc{color:var(--green)}
+.day .evt.extratag,.sg.extraday .sg-h span{color:var(--yellow)}
+.tot.green{background:var(--green-bg)}.tot.green .k{color:var(--green)}
+.tot.yellow{background:var(--yellow-bg)}.tot.yellow .k{color:var(--yellow)}
+.day.vidday{background:color-mix(in srgb,var(--blue-bg) 55%,var(--bg))}
+.day .evt.vidtag{color:var(--blue)}
+.dfoot .price.vidp,.visit .vp .vidp,.visit li .v.vb,.group.vid .group-h h3{color:var(--blue)}
+.tot.blue{background:var(--blue-bg)}
+.tot.blue .k{color:var(--blue)}
+.chip.warn{background:var(--warn-bg);border-left-color:var(--warn)}
+.chip button{background:none;border:0;color:var(--ink-3);cursor:pointer;font-size:13px;line-height:1;padding:0 3px}
+.chip button:hover{color:var(--ink)}
+.dfoot{margin-top:auto;display:grid;gap:3px;padding-top:6px;border-top:1px solid var(--line)}
+.meter{height:3px;background:var(--line);position:relative}
+.meter i{position:absolute;inset:0 auto 0 0;background:var(--gold)}
+.meter.full i{background:var(--warn)}
+.dfoot .row{display:flex;justify-content:space-between;gap:4px;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.dfoot .price.inc{color:var(--ok)}
+.dfoot .price.extra{color:var(--ink)}
+.dfoot .alert{color:var(--warn)}
+
+/* Resumo */
+.summary{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;align-items:start}
+@media (max-width:900px){.summary{grid-template-columns:1fr}}
+.visits{display:grid;border:1px solid var(--line)}
+.visit{display:grid;grid-template-columns:150px minmax(0,1fr) 130px;gap:16px;padding:16px 18px;border-top:1px solid var(--line)}
+.visit:first-child{border-top:0}
+@media (max-width:620px){.visit{grid-template-columns:1fr;gap:8px}}
+.visit .vd{display:grid;gap:2px;align-content:start}
+.visit .vd b{font-weight:400;font-size:16px;text-transform:uppercase;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.visit .vd span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.visit ul{margin:0;padding:0;list-style:none;display:grid;gap:3px;font-size:14px;min-width:0}
+.visit li .w{display:block;font-size:12px;color:var(--warn)}
+.visit li .v{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink);margin-left:6px}
+.visit .vp{display:grid;gap:4px;justify-items:end;text-align:right;align-content:start}
+@media (max-width:620px){.visit .vp{justify-items:start;text-align:left}}
+.visit .vp b{font-weight:400;font-size:18px;font-variant-numeric:tabular-nums}
+.visit .vp span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.visit .vp .inc{color:var(--ok)}
+.visit .vp .warnline{color:var(--warn)}
+.linkbtn{background:none;border:0;padding:0;color:var(--gold-ink);font-size:10px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.empty{padding:28px 20px;color:var(--ink-2);font-size:14px;display:grid;gap:6px}
+.empty b{font-weight:400;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+
+.totals{display:grid;gap:0;border:1px solid var(--line)}
+.tot{padding:18px 20px;display:grid;gap:4px;border-top:1px solid var(--line)}
+.tot:first-child{border-top:0}
+.tot .k{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.tot .n{font-size:28px;font-variant-numeric:tabular-nums;letter-spacing:.02em;line-height:1.15}
+.tot p{font-size:12.5px;color:var(--ink-2)}
+.tot.dark{background:var(--dark);color:var(--on-dark)}
+.tot.dark .k{color:var(--gold)}
+.tot.dark p{color:color-mix(in srgb,var(--on-dark) 75%,transparent)}
+
+.notes{display:grid;gap:8px;margin-top:22px}
+.notes label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.notes textarea{width:100%;min-height:96px;font:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:12px 14px;resize:vertical}
+.notes textarea:focus{outline:1px solid var(--gold);outline-offset:0}
+
+/* Barra de seleção */
+.selbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--ink);color:var(--bg);padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;justify-content:center;align-items:center;gap:10px 18px;flex-wrap:wrap;font-size:13px}
+.selbar .btn{color:var(--bg);border-color:color-mix(in srgb,var(--bg) 35%,transparent)}
+.selbar b{font-weight:400;letter-spacing:.06em}
+
+
+.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+a.btn{text-decoration:none;display:inline-block}
+.tabs{display:flex;border:1px solid var(--line);margin-bottom:18px;max-width:560px}
+.tabs button{flex:1;display:grid;gap:2px;text-align:left;padding:12px 16px;background:var(--bg);color:var(--ink-2);border:0;border-right:1px solid var(--line);cursor:pointer;font-size:14px;letter-spacing:.04em}
+.tabs button:last-child{border-right:0}
+.tabs button .tk{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.tabs button.on{background:var(--ink);color:var(--bg)}
+.tabs button.on .tk{color:var(--gold)}
+.tabs button:focus-visible{outline:1px solid var(--gold);outline-offset:2px}
+.card.ro{cursor:default}
+.card.ro .box{visibility:hidden}
+.card .m .moved{color:var(--warn)}
+.chip.moved{box-shadow:inset 0 0 0 1px var(--gold)}
+.board.readonly .chip{cursor:default}
+.visit li .v.mv{color:var(--warn)}
+.send{border:1px solid var(--line);padding:16px;display:grid;gap:10px}
+.send label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.send textarea{width:100%;min-height:200px;font:inherit;font-size:13px;color:var(--ink);background:var(--surface);border:1px solid var(--line);padding:10px 12px;resize:vertical}
+.send-row{display:flex;gap:8px;flex-wrap:wrap}
+.send p{font-size:12.5px;color:var(--ink-2)}
+
+.sugs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;border:1px solid var(--line)}
+.sg{padding:16px 18px;display:grid;gap:8px;align-content:start;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -1px -1px 0}
+.sg-wide{grid-column:1/-1}
+.sg.vidday{background:color-mix(in srgb,var(--blue-bg) 55%,var(--bg))}
+.sg-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sg-h b{font-weight:400;font-size:15px;text-transform:uppercase;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.sg-h span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.sg.vidday .sg-h span{color:var(--blue)}
+.sg ul{list-style:none;margin:0;padding:0;display:grid;gap:5px;font-size:13.5px}
+.sg li{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.sg li.mv span:first-child{color:var(--ink-3)}
+.sg li em{font-style:normal;display:block;font-size:11px;color:var(--warn)}
+.sg .ok{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ok)}
+
+.plantag{color:var(--warn)!important;text-decoration:none}
+a.plantag:hover{text-decoration:underline}
+.plan{border:1px solid var(--warn);background:var(--warn-bg);padding:14px 16px;display:grid;gap:10px;scroll-margin-top:20px}
+.plan b{font-weight:400;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--warn)}
+.plan ol{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:13.5px}
+.plan li{display:grid;grid-template-columns:130px 1fr;gap:10px}
+.plan li span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);padding-top:2px}
+@media (max-width:520px){.plan li{grid-template-columns:1fr;gap:2px}}
+.plan p{font-size:13px;color:var(--ink);border-top:1px solid color-mix(in srgb,var(--warn) 35%,transparent);padding-top:9px}
+.vnote{border:1px solid var(--blue);background:var(--blue-bg);padding:12px 14px;display:grid;gap:6px}
+.vnote b{font-weight:400;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.vnote p{font-size:13.5px;color:var(--ink)}
+footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="stars">★★★★★</div>
+    <div class="eyebrow">Agenda de captações · outubro e novembro 2026</div>
+    <h1>Corpo Perfeito<br>Captações</h1>
+    <p class="lead">São vinte conteúdos pedidos, com cerca de 10 horas de gravação. Um volume assim não cabe numa só visita sem perder qualidade, por isso a proposta é dividir as gravações por vários dias de até 4 horas. Abaixo está a sugestão da Audrey para cada dia. A Mara pode aceitá-la como está ou ajustá-la na sua agenda, arrastando os conteúdos para outros dias.</p>
+
+    <div class="rules">
+      <div class="rule dark oct">
+        <span class="k">Outubro · o que já foi feito</span>
+        <div class="big">3 visitas<small>de captação</small></div>
+        <ul class="done-list">
+          <li><span>1 visita incluída no plano mensal</span><b>Incluída</b></li>
+          <li><span>2 visitas extra</span><b>Oferecidas</b></li>
+        </ul>
+        <p>As duas visitas além do plano, o equivalente a 300 €, foram feitas sem qualquer custo adicional.</p>
+      </div>
+      <div class="rule">
+        <span class="k">Incluído no plano mensal</span>
+        <div class="big">1 visita<small>por mês</small></div>
+        <p>Uma visita de até 4 horas para captar os conteúdos do mês.</p>
+      </div>
+      <div class="rule">
+        <span class="k">Volume desta lista</span>
+        <div class="big">≈ 10h<small>de gravação</small></div>
+        <p>Vinte conteúdos não cabem numa só visita com a qualidade que pedem. Por isso a proposta divide-os por vários dias, alguns só com o videógrafo.</p>
+      </div>
+      <div class="rule">
+        <span class="k">Cada dia extra de gravação</span>
+        <div class="big">150 €<small>até 4 horas</small></div>
+        <p>Podem ser gravados quantos conteúdos forem necessários. O valor já inclui a captação e a edição.</p>
+      </div>
+      <div class="rule">
+        <span class="k">Conta a visita, não o conteúdo</span>
+        <h3>Outubro serve novembro</h3>
+        <p>O que for captado em outubro pode ser publicado em novembro.</p>
+      </div>
+      <div class="rule" style="background:var(--blue-bg)">
+        <span class="k" style="color:var(--blue)">Videógrafo especializado</span>
+        <h3>Takes para usar o ano inteiro</h3>
+        <p>Pelo volume e pelo nível pedido, alguns conteúdos precisam de um videógrafo especializado. São imagens perpétuas, para várias campanhas. Os dias só com videógrafo não têm custo da Audrey: o valor é pago diretamente ao videógrafo e está por confirmar.</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="agenda">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Agenda de gravações</div>
+        <h2>Conteúdos e datas</h2>
+        <p id="viewNote"></p>
+      </div>
+      <div class="actions">
+        <span class="status" id="status" aria-live="polite">A carregar</span>
+        <button class="btn" type="button" id="btnReset" hidden>Repor a sugestão</button>
+        <button class="btn solid" type="button" id="btnSend">Enviar à Audrey</button>
+      </div>
+    </div>
+    <div class="howto" id="howto">
+      <span>Arraste um conteúdo para o dia escolhido</span>
+      <span>No telemóvel: toque no conteúdo e depois no dia</span>
+      <span>Toque em vários para os mover juntos</span>
+      <span>× tira o conteúdo do dia</span>
+      <span>Domingos sem gravações</span>
+      <span>Dia 30 (Halloween): até 2h, 80 €</span>
+    </div>
+
+    <div class="board" id="board">
+      <aside class="bank" id="bank" aria-label="Conteúdos por marcar"></aside>
+      <div class="cals" id="cals"></div>
+    </div>
+  </section>
+
+  <section id="resumo">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Resumo</div>
+        <h2 id="sumTitle">Dias de gravação</h2>
+        <p>Atualiza sozinho com a agenda que estiver aberta. Em novembro, o primeiro dia marcado é a visita incluída no plano; na sua agenda pode escolher outro.</p>
+      </div>
+    </div>
+    <div class="summary">
+      <div>
+        <div class="visits" id="visits"></div>
+        <div class="notes">
+          <label for="notas">Observações para a Audrey</label>
+          <textarea id="notas" placeholder="Horários preferidos, quem vai estar presente, salas a reservar…"></textarea>
+        </div>
+      </div>
+      <div style="display:grid;gap:16px;align-content:start">
+        <div class="totals" id="totals"></div>
+        <div class="send" id="sendBox" hidden>
+          <label for="sendText">Mensagem para a Audrey</label>
+          <textarea id="sendText" readonly></textarea>
+          <div class="send-row">
+            <button class="btn solid" type="button" id="btnCopy">Copiar texto</button>
+            <a class="btn" id="waLink" href="https://wa.me/" target="_blank" rel="noopener">Abrir no WhatsApp</a>
+          </div>
+          <p>Cole no grupo “Conteúdo e Design CP”. A Audrey confirma cada dia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sugestao">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Para consulta</div>
+        <h2>A sugestão da Audrey</h2>
+        <p>A proposta original, sempre visível. Se mudou algum conteúdo de dia e quiser voltar atrás, use “Voltar” no conteúdo ou no dia inteiro.</p>
+      </div>
+    </div>
+    <div class="sugs" id="sugList"></div>
+  </section>
+
+  <footer>
+    <span>Corpo Perfeito Health Club · Guimarães · Famalicão</span>
+    <span>Audrey Doanne · Agenda de captações</span>
+  </footer>
+</div>
+
+<div class="selbar" id="selbar" hidden>
+  <b id="selCount"></b>
+  <span>Toque num dia para marcar</span>
+  <button class="btn" type="button" id="selUnassign">Tirar da agenda</button>
+  <button class="btn" type="button" id="selClear">Cancelar</button>
+</div>
+
+<script>
+const TODAY = (()=>{ const n=new Date(), t=`${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,"0")}-${String(n.getDate()).padStart(2,"0")}`; return t>"2026-10-20"?t:"2026-10-20"; })();
+const PRICE_DAY = 150, PRICE_HALLOWEEN = 80;
+
+const GROUPS = [
+  {id:"vid", t:"Com videógrafo", p:"Conteúdos perpétuos, gravados pelo videógrafo. Pagos diretamente a ele, valor por confirmar."},
+  {id:"reg", t:"Captação regular", p:"Gravados pela Audrey. Podem juntar-se a qualquer visita."},
+  {id:"opt", t:"Opcional", p:"Sugestão: a equipa grava e envia os vídeos à Audrey para editar."}
+];
+
+const ITEMS = [
+  {id:"medico", g:"vid", n:"Médico", d:"3 conteúdos: o médico a receber o paciente, a explicar como funciona o atendimento e os diferenciais.", h:0.5, dows:[1], month:10, ind:"Segunda, ainda em outubro", sug:"2026-10-26"},
+  {id:"nutricionista", g:"vid", n:"Nutricionista", d:"Mesma linha do médico: receção, como funciona a consulta e diferenciais.", h:0.5, dows:[1], month:10, ind:"Segunda, ainda em outubro", sug:"2026-10-26"},
+  {id:"fisioterapeuta", g:"vid", n:"Fisioterapeuta", d:"Mesma linha do médico: receção, como funciona a sessão e diferenciais.", h:0.5, dows:[1], month:10, ind:"Segunda, ainda em outubro", sug:"2026-10-26"},
+  {id:"bf-oferta", g:"vid", n:"Black Friday · oferta", d:"Vídeo da equipa a apresentar a oferta, para tráfego pago.", h:0.75, before:"2026-11-20", ind:"Até 20/11", sug:"2026-10-24"},
+  {id:"danca", g:"vid", n:"Dança", d:"Filmagem profissional das meninas no ensaio, com camisolas CP e calça ou calções pretos.", h:1, dows:[6], part:"manha", ind:"Sábado de manhã", sug:"2026-10-24"},
+  
+  {id:"famalicao", g:"reg", n:"Equipa de Famalicão", d:"Fotografia e vídeo da equipa e do espaço, para mostrar o atendimento 5 estrelas da unidade.", h:1.5, ind:"Na unidade de Famalicão", sug:"2026-10-29"},
+  {id:"m-desportiva", g:"reg", n:"Massagem desportiva", d:"Técnica, ambiente e pormenores do tratamento.", h:0.25, sug:"2026-10-29"},
+  {id:"m-miofascial", g:"reg", n:"Libertação miofascial", d:"Técnica, ambiente e pormenores do tratamento.", h:0.25, sug:"2026-10-29"},
+  {id:"m-aromaterapia", g:"reg", n:"Aromaterapia aplicada à massagem", d:"Os óleos, o ritual e o momento da massagem.", h:0.25, sug:"2026-10-29"},
+  {id:"m-ayurvedica", g:"reg", n:"Massagem ayurvédica no solo", d:"Técnica, ambiente e pormenores do tratamento.", h:0.25, sug:"2026-10-29"},
+  {id:"m-shiatsu", g:"reg", n:"Massagem Shiatsu", d:"Técnica, ambiente e pormenores do tratamento.", h:0.25, sug:"2026-10-29"},
+  {id:"pilates-gravidas", g:"reg", n:"Pilates para grávidas", d:"Aula com o acompanhamento da professora.", h:0.25, sug:"2026-10-29"},
+  {id:"yoga", g:"reg", n:"Yoga", d:"Preparar a sala antes: ninguém de costas e espaço livre para circular e gravar.", h:0.25, sug:"2026-10-27"},
+  {id:"hidro", g:"reg", n:"Hidroginástica e ritual wellness", d:"Sócios a descer para a aula de roupão. Depois, sauna, banho turco, jacuzzi e o ritual do chá.", h:1, sug:"2026-10-27"},
+  {id:"retrospetiva", g:"reg", n:"Sócios a celebrar", d:"Fotografias de grupo para o conteúdo de retrospetiva do ano.", h:0.25, sug:"2026-10-27"},
+  {id:"loja-online", g:"reg", n:"Marcações na loja online", d:"A equipa a ensinar, passo a passo, como fazer a marcação na loja online.", h:0.25, sug:"2026-10-27"},
+  {id:"bf-envolvimento", g:"reg", n:"Black Friday · envolvimento", d:"Vídeos da equipa para envolvimento e conteúdos virais.", h:0.5, before:"2026-11-20", ind:"Até 20/11", sug:"2026-10-27"},
+  {id:"entardecer", g:"reg", n:"Clube ao entardecer", d:"Piscina e cenários do clube com a luz natural do fim do dia.", h:0.75, dows:[6], part:"tarde", ind:"Sábado ao fim da tarde", sug:"2026-10-27"},
+  {id:"chef", g:"reg", n:"Chef no Healthy Bar", d:"O chef a cozinhar, com takes variados para divulgar o Healthy Bar. A partir daqui, uma receita por mês.", h:0.75, sug:"2026-10-27"},
+
+  {id:"halloween", g:"opt", n:"Halloween", d:"A equipa grava e envia à Audrey, ou a Audrey pode ir ao clube de Guimarães, pelo adicional de 80 € (2h de captação). Roteiro no fim da página.", h:2, fixed:"2026-10-30", ind:"Sexta, 30/10", sug:null}
+];
+const BY_ID = Object.fromEntries(ITEMS.map(i=>[i.id,i]));
+const PLAN_HIDRO = {
+  t:"Atenção: Yoga e Hidroginástica são à mesma hora, às 19h30",
+  steps:[
+    ["Até 17h30","Início das gravações com os restantes conteúdos do dia. De preferência às 17h00, para apanhar o entardecer: depois da mudança da hora, o sol põe-se por volta das 17h30."],
+    ["Antes das 19h30","Hidroginástica: os sócios a prepararem-se para a aula e a descerem de roupão."],
+    ["19h30","A Audrey sobe para gravar parte da aula de Yoga."],
+    ["Fim das aulas","A Audrey desce para apanhar a saída da hidro: sauna, banho turco, jacuzzi e o ritual do chá."],
+    ["Por volta das 21h30","Fim do dia de gravação."]
+  ],
+  prep:"A preparar pela Mara: falar antes com os sócios certos e com a professora, e deixar o ritual do chá pronto (chá, velas e ambiente), para nada falhar no momento da gravação."
+};
+const VID_NOTE="Também no roteiro do videógrafo: mostrar o clube e as instalações, principalmente as zonas novas de balneário, sauna e banho turco. São imagens para usar depois noutros conteúdos.";
+function vidNoteHTML(){ return `<div class="vnote"><b>Roteiro do videógrafo</b><p>${esc(VID_NOTE)}</p></div>`; }
+const HALLOWEEN_INFO="A equipa grava e envia à Audrey, ou a Audrey pode ir ao clube de Guimarães, pelo adicional de 80 € (2h de captação).";
+const PLAN_HALLOWEEN = {
+  t:"Roteiro do Halloween · Día de los Muertos",
+  steps:[
+    ["À abertura","Receção decorada: planos gerais e pormenores (flores laranja, velas, caveiras decoradas)."],
+    ["Equipa","A equipa a rigor e com a maquilhagem Catrina, a receber os sócios."],
+    ["Aulas temáticas","Planos curtos dos instrutores e da energia da turma, com a música a condizer."],
+    ["Mais pequenos","As aulas especiais das crianças, só com autorização dos pais."],
+    ["Sócios","Reações à decoração na receção e uma fotografia de grupo para fechar."]
+  ],
+  prep:"Se for a equipa a gravar: vídeo na vertical, planos de 5 a 10 segundos com boa luz, e enviar os ficheiros originais à Audrey no próprio dia, por Google Drive ou WeTransfer (o WhatsApp tira qualidade)."
+};
+function planFor(its){ return its.some(i=>i.id==="hidro") ? PLAN_HIDRO : its.some(i=>i.id==="halloween") ? PLAN_HALLOWEEN : null; }
+function planHTML(pl){ return `<div class="plan"><b>${esc(pl.t)}</b><ol>${pl.steps.map(([h,x])=>`<li><span>${esc(h)}</span>${esc(x)}</li>`).join("")}</ol><p>${esc(pl.prep)}</p></div>`; }
+const EVENTS = {"2026-10-30":"Halloween · a equipa grava, ou Audrey 2h por 80 €", "2026-11-11":"São Martinho · a equipa grava e envia à Audrey"};
+
+const DOW_S = ["dom.","seg.","ter.","qua.","qui.","sex.","sáb."];
+const DOW_L = ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"];
+const MONTHS = {10:"outubro",11:"novembro"};
+
+const pad = n => String(n).padStart(2,"0");
+const iso = (m,d) => `2026-${pad(m)}-${pad(d)}`;
+const parse = s => { const [y,m,d]=s.split("-").map(Number); return {y,m,d,dow:new Date(y,m-1,d).getDay()}; };
+const short = s => { const p=parse(s); return `${DOW_S[p.dow]} ${pad(p.d)}/${pad(p.m)}`; };
+const fmtH = h => { const t=Math.round(h*60), H=Math.floor(t/60), M=t%60; return H ? (M ? `${H}h${pad(M)}` : `${H}h`) : `${M} min`; };
+const eur = n => `${n.toLocaleString("pt-PT")} €`;
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* Estado */
+const SUG = Object.fromEntries(ITEMS.filter(i=>i.sug).map(i=>[i.id,i.sug]));
+const state = { assign:{...SUG}, custom:false, visitaNov:null, notas:"" };
+let view = "mara";
+const sel = new Set();
+let db = null, mode = "loading";
+
+function A(){ return view==="sug" ? SUG : state.assign; }
+function itemsOn(dia){ const a=A(); return ITEMS.filter(i=>a[i.id]===dia); }
+function bookedDays(){ return [...new Set(Object.values(A()).filter(Boolean))].sort(); }
+function changedCount(){ return ITEMS.filter(i=>(state.assign[i.id]||null)!==(SUG[i.id]||null)).length; }
+
+function itemWarnings(it, dia){
+  const w=[]; const p=parse(dia);
+  if(it.fixed && dia!==it.fixed) w.push(`Data do evento: ${short(it.fixed)}`);
+  if(it.month && p.m!==it.month) w.push(`Pedido para ${MONTHS[it.month]}`);
+  if(it.dows && !it.dows.includes(p.dow)) w.push(`Indicado para ${it.dows.map(x=>DOW_L[x]).join(" ou ")}${it.part==="manha"?" de manhã":it.part==="tarde"?" ao fim da tarde":""}`);
+  if(it.before && dia>it.before) w.push(`Gravar até ${short(it.before)}, antes da campanha`);
+  return w;
+}
+const HALLOWEEN_DAY="2026-10-30";
+function isShortVisit(dia){ return dia===HALLOWEEN_DAY; }
+function isVidDay(dia){ const its=itemsOn(dia); return !isShortVisit(dia) && its.length>0 && its.every(i=>i.g==="vid"); }
+const INC_DEFAULT="2026-10-27";
+function includedNov(){
+  const nov = bookedDays().filter(d=>!isVidDay(d) && !isShortVisit(d));
+  if(view==="sug" || !state.visitaNov){ if(nov.includes(INC_DEFAULT)) return INC_DEFAULT; }
+  const pick = view==="sug" ? null : state.visitaNov;
+  if(pick && nov.includes(pick)) return pick;
+  return nov[0]||null;
+}
+function dayInfo(dia){
+  const its=itemsOn(dia), hrs=its.reduce((a,i)=>a+i.h,0), p=parse(dia);
+  let price, kind, cap;
+  const vidDay=isVidDay(dia);
+  if(isShortVisit(dia)){ price=PRICE_HALLOWEEN; kind="Halloween · até 2h"; cap=2; }
+  else if(vidDay){ price=0; kind="Dia do videógrafo"; cap=4; }
+  else if(dia===includedNov()){ price=0; kind="Captação de novembro · incluída no plano"; cap=4; }
+  else { price=PRICE_DAY; kind="Visita adicional"; cap=4; }
+  const alerts=[];
+    if(its.some(i=>i.part==="manha") && its.some(i=>i.part==="tarde")) alerts.push("Manhã e fim de tarde no mesmo dia não cabem em 4 horas seguidas");
+  return {its,hrs,price,kind,cap,alerts,vidDay,tone:vidDay?"vidday":isShortVisit(dia)||price>0?"extraday":"incday",vid:its.some(i=>i.g==="vid")};
+}
+
+/* Banco de conteúdos */
+function renderBank(){
+  const el=document.getElementById("bank");
+  el.innerHTML = GROUPS.map(g=>{
+    const its=ITEMS.filter(i=>i.g===g.id);
+    return `<div class="group ${g.id}">
+      <div class="group-h"><h3>${g.t} · ${its.length}</h3><p>${g.p}</p></div>
+      ${its.map(cardHTML).join("")}
+    </div>`;
+  }).join("");
+}
+function cardHTML(i){
+  const ro=view==="sug", dia=A()[i.id], sug=SUG[i.id];
+  const meta=[];
+  if(i.g==="vid") meta.push(`<span class="vtag">Videógrafo</span>`);
+  if(i.ind) meta.push(`<span class="ind">Pedido: ${esc(i.ind)}</span>`);
+  if(ro){ if(dia) meta.push(`<span class="when">Sugestão · ${short(dia)}</span>`); }
+  else {
+    if(dia) meta.push(`<span class="when">Marcado · ${short(dia)}</span>`);
+    if((dia||null)!==(sug||null)) meta.push(`<span class="moved">${sug?`Sugestão era ${short(sug)}`:"Fora da sugestão"}</span>`);
+  }
+  return `<button type="button" class="card ${sel.has(i.id)?"sel":""} ${dia?"done":""} ${ro?"ro":""}" ${ro?"":'draggable="true"'} data-id="${i.id}" aria-pressed="${sel.has(i.id)}">
+    <span class="box" aria-hidden="true"></span>
+    <span><span class="t">${esc(i.n)}</span><span class="d">${esc(i.d)}</span><span class="m">${meta.join("")}</span></span>
+  </button>`;
+}
+
+/* Calendários */
+function renderCals(){
+  const el=document.getElementById("cals");
+  el.innerHTML=[10,11].map(m=>{
+    const first=new Date(2026,m-1,1).getDay(), offset=(first+6)%7, days=new Date(2026,m,0).getDate();
+    const mDays=bookedDays().filter(d=>parse(d).m===m);
+    let cells=["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"].map(d=>`<div class="dow">${d}</div>`).join("");
+    for(let i=0;i<offset;i++) cells+=`<div class="day blank"></div>`;
+    for(let d=1;d<=days;d++) cells+=dayHTML(iso(m,d));
+    const trail=(7-((offset+days)%7))%7;
+    for(let i=0;i<trail;i++) cells+=`<div class="day blank"></div>`;
+    const note = m===10 ? "3 visitas já feitas, sem custos" : "1 visita incluída no plano";
+    return `<div>
+      <div class="month-h"><h3>${MONTHS[m]} 2026</h3><span>${note} · ${mDays.length} ${mDays.length===1?"dia de gravação":"dias de gravação"}</span></div>
+      <div class="cal-scroll"><div class="cal">${cells}</div></div>
+    </div>`;
+  }).join("");
+}
+function dayHTML(dia){
+  const p=parse(dia), ro=view==="sug";
+  if(dia<TODAY) return `<div class="day past"><div class="top-row"><span class="num">${pad(p.d)}</span></div></div>`;
+  if(p.dow===0) return `<div class="day closed"><div class="top-row"><span class="num">${pad(p.d)}</span></div><span class="evt muted">Sem gravações</span></div>`;
+  const info=dayInfo(dia);
+  const evt=EVENTS[dia]?`<span class="evt">${EVENTS[dia]}</span>`:"";
+  const chips=info.its.map(i=>{
+    const w=itemWarnings(i,dia), moved=!ro && (SUG[i.id]||null)!==dia;
+    return `<div class="chip ${i.g==="vid"?"vid":""} ${w.length?"warn":""} ${moved?"moved":""}" ${ro?"":'draggable="true"'} data-id="${i.id}" title="${esc(w.join(" · ")||(moved?"Alterado em relação à sugestão":i.n))}">
+      <span>${esc(i.n)}</span>${ro?"":`<button type="button" data-remove="${i.id}" aria-label="Tirar ${esc(i.n)} deste dia">×</button>`}</div>`;
+  }).join("");
+  let foot="";
+  if(info.its.length){
+    foot=`<div class="dfoot">
+      <div class="row">${info.vidDay?`<span class="price vidp">Videógrafo</span>`:`<span>Até ${info.cap}h</span><span class="price ${info.price?"extra":"inc"}">${info.price?eur(info.price):"Incluída"}</span>`}</div>
+      ${info.alerts.length?`<div class="row alert"><span>${info.alerts.length===1?"1 alerta":info.alerts.length+" alertas"}</span></div>`:""}
+    </div>`;
+  }
+  return `<div class="day ${ro?"ro":"open"} ${info.its.length?"has":""} ${info.its.length?info.tone:""}" data-day="${dia}" ${ro?"":'tabindex="0"'} aria-label="${DOW_L[p.dow]}, ${p.d} de ${MONTHS[p.m]}">
+    <div class="top-row"><span class="num">${pad(p.d)}</span></div>${evt}${info.vidDay?`<span class="evt vidtag">Dia do videógrafo · + instalações do clube</span>`:info.its.length&&info.tone==="incday"?`<span class="evt inctag">Captação de novembro · incluída</span>`:info.its.length&&!isShortVisit(dia)?`<span class="evt extratag">Visita adicional</span>`:""}${planFor(info.its)?`<a class="evt plantag" href="#plano">Atenção · ver plano do dia</a>`:""}
+    <div class="chips">${chips}</div>${foot}
+  </div>`;
+}
+
+/* Resumo */
+function renderSummary(){
+  const days=bookedDays(), inc=includedNov(), ro=view==="sug";
+  document.getElementById("sumTitle").textContent = "Dias de gravação";
+  const vis=document.getElementById("visits");
+  if(!days.length){
+    vis.innerHTML=`<div class="empty"><b>Ainda sem dias marcados</b><span>Arraste os conteúdos para o calendário, ou reponha a sugestão da Audrey para partir dela.</span></div>`;
+  } else {
+    vis.innerHTML=days.map(dia=>{
+      const info=dayInfo(dia), p=parse(dia);
+      const lis=info.its.map(i=>{
+        const w=itemWarnings(i,dia), moved=!ro && (SUG[i.id]||null)!==dia;
+        return `<li>${esc(i.n)}${i.g==="vid"?`<span class="v vb">Videógrafo</span>`:""}${moved?`<span class="v mv">Alterado</span>`:""}${w.map(x=>`<span class="w">${esc(x)}</span>`).join("")}</li>`;
+      }).join("");
+      const canInc = !ro && !info.vidDay && !isShortVisit(dia) && dia!==inc;
+      return `<div class="visit ${info.tone}">
+        <div class="vd"><b>${short(dia)}</b>${info.vidDay?"":`<span>Até ${info.cap}h</span>`}${info.vid&&!info.vidDay?`<span>Com videógrafo</span>`:""}</div>
+        <div style="display:grid;gap:12px;min-width:0"><ul>${lis}${info.alerts.map(a=>`<li><span class="w">${esc(a)}</span></li>`).join("")}</ul>${planFor(info.its)?`<div id="plano">${planHTML(planFor(info.its))}</div>`:""}${info.vidDay?vidNoteHTML():""}</div>
+        <div class="vp">${info.vidDay?`<b class="vidp">Videógrafo</b><span>Pago pela Mara diretamente · valor por confirmar</span>`:`<b class="${info.price?"":"inc"}">${info.price?eur(info.price):"0 €"}</b><span>${info.kind}</span>`}
+          ${canInc?`<button type="button" class="linkbtn" data-inc="${dia}">Usar como captação incluída</button>`:""}</div>
+      </div>`;
+    }).join("");
+  }
+  const extras=days.filter(d=>dayInfo(d).price>0), extraTot=extras.reduce((a,d)=>a+dayInfo(d).price,0);
+  const auDays=days.filter(d=>!dayInfo(d).vidDay), vds=days.filter(d=>dayInfo(d).vidDay), vd=vds.length;
+  const total=ITEMS.filter(i=>i.g!=="opt").length, done=ITEMS.filter(i=>i.g!=="opt" && A()[i.id]).length;
+  const ch=changedCount();
+  document.getElementById("totals").innerHTML=`
+    <div class="tot"><span class="k">Conteúdos com dia</span><span class="n">${done} / ${total}</span><p>${total-done?`Faltam ${total-done} por marcar.`:"Todos os conteúdos têm dia."}${!ro&&ch?` ${ch} ${ch===1?"alteração":"alterações"} à sugestão.`:""}</p></div>
+    <div class="tot green"><span class="k">Incluída no plano</span><span class="n">${inc?short(inc):"Por marcar"}</span><p>Captação de novembro, já em outubro. Sem custo adicional.</p></div>
+    <div class="tot yellow"><span class="k">Visitas adicionais</span><span class="n">${eur(extraTot)}</span><p>${extras.length?extras.map(d=>`${short(d)} · ${eur(dayInfo(d).price)}`).join(", ")+". ":""}A somar à avença do mês em que acontecem.</p></div>
+    <div class="tot blue"><span class="k">Dias do videógrafo</span><span class="n">${vd} ${vd===1?"dia":"dias"}</span><p>${vd?vds.map(short).join(", ")+". ":""}Pagos pela Mara diretamente ao videógrafo, valor por confirmar.</p></div>
+    <div class="tot dark"><span class="k">Dias adicionais · total</span><span class="n">${eur(extraTot)}</span><p>${auDays.length} ${auDays.length===1?"dia":"dias"} da Audrey e do Kaiky, de até 4 horas de captação, com temas já pré-definidos. Sobrando tempo, podemos gravar outros conteúdos que surjam.</p></div>`;
+}
+
+function renderView(){
+  document.querySelectorAll("[data-view]").forEach(b=>{ const on=b.dataset.view===view; b.classList.toggle("on",on); b.setAttribute("aria-selected",on); });
+  const ro=view==="sug";
+  document.getElementById("viewNote").textContent = ro
+    ? "Esta é a proposta da Audrey. Para mudar algum dia, passe para “A minha agenda”: começa igual à sugestão e pode ajustar à vontade."
+    : "A agenda abre com a sugestão da Audrey. Arraste para mudar o que quiser; no fim da página fica sempre a sugestão original, para voltar atrás quando precisar.";
+  document.getElementById("howto").hidden = ro;
+  document.getElementById("btnReset").hidden = ro || !changedCount();
+  document.getElementById("board").classList.toggle("readonly", ro);
+}
+function renderSelbar(){
+  const bar=document.getElementById("selbar");
+  bar.hidden=!sel.size || view==="sug";
+  document.getElementById("selCount").textContent=`${sel.size} ${sel.size===1?"conteúdo selecionado":"conteúdos selecionados"}`;
+}
+function renderSug(){
+  const prev=view; view="sug";
+  const days=bookedDays().map(d=>({d,info:dayInfo(d)}));
+  view=prev;
+  document.getElementById("sugList").innerHTML=days.map(({d,info})=>{
+    const anyMoved=info.its.some(i=>(state.assign[i.id]||null)!==d);
+    const lis=info.its.map(i=>{
+      const now=state.assign[i.id]||null, mv=now!==d;
+      return `<li class="${mv?"mv":""}"><span>${esc(i.n)}${mv?`<em>${now?`Agora: ${short(now)}`:"Agora sem dia"}</em>`:""}</span>${mv?`<button type="button" class="linkbtn" data-back="${i.id}">Voltar</button>`:""}</li>`;
+    }).join("");
+    return `<div class="sg ${info.tone}">
+      <div class="sg-h"><b>${short(d)}</b><span>${info.vidDay?"Videógrafo":info.price?"Adicional · "+eur(info.price):"Incluída no plano"}</span></div>
+      <ul>${lis}</ul>${info.vidDay?`<span class="evt vidtag">+ Clube e instalações: balneários novos, sauna e banho turco</span>`:""}${planFor(info.its)?`<span class="evt plantag">Atenção: Yoga e Hidro às 19h30 · ver plano no resumo</span>`:""}
+      ${anyMoved?`<button type="button" class="linkbtn" data-backday="${d}" style="justify-self:start">Voltar o dia todo a esta sugestão</button>`:`<span class="ok">Igual na agenda</span>`}
+    </div>`;
+  }).join("")+`<div class="sg sg-wide" id="halloween"><div class="sg-h"><b>sex. 30/10 · Halloween</b><span>Equipa: sem custo · Audrey: 80 €</span></div><p style="font-size:13.5px">${esc(HALLOWEEN_INFO)}</p>${planHTML(PLAN_HALLOWEEN)}</div><div class="sg sg-wide"><div class="sg-h"><b>qua. 11/11 · Dia de São Martinho</b><span>Equipa · sem custo</span></div><p style="font-size:13.5px">A equipa grava o conteúdo e envia à Audrey para editar. A Audrey indica antes as imagens necessárias.</p></div>`;
+}
+function renderAll(){ renderView(); renderSug(); renderBank(); renderCals(); renderSummary(); renderSelbar();
+  const ta=document.getElementById("notas"); if(document.activeElement!==ta) ta.value=state.notas||""; }
+
+/* Guardar */
+const statusEl=document.getElementById("status");
+let pending=0;
+function setStatus(t,err){ statusEl.textContent=t; statusEl.classList.toggle("err",!!err); }
+function idleStatus(){
+  if(mode==="db") setStatus("Guardado · partilhado com a Audrey");
+  else setStatus("Guardado neste dispositivo");
+}
+function persist(){
+  const doc={assign:state.assign, custom:state.custom, visitaNov:state.visitaNov||null, notas:state.notas||""};
+  try{ localStorage.setItem("cp-agenda-v2",JSON.stringify(doc)); }catch(e){}
+  if(mode!=="db"){ idleStatus(); return; }
+  pending++; setStatus("A guardar");
+  db.doc("config/geral").set(doc).then(()=>{ pending--; if(!pending) idleStatus(); }, e=>{ pending--; const c=e&&e.code;
+    setStatus(c==="permission_denied"||c==="not_granted"?"Sem permissão para guardar aqui · use “Enviar à Audrey”":"Não foi possível guardar · tente de novo", true); });
+}
+
+function place(ids, dia){
+  if(view==="sug") return;
+  ids=ids.filter(id=>BY_ID[id]);
+  ids.forEach(id=>{ if(dia) state.assign[id]=dia; else delete state.assign[id]; });
+  state.custom=true; sel.clear(); renderAll(); persist();
+}
+function setInc(dia){ state.visitaNov=dia; state.custom=true; renderAll(); persist(); }
+function setView(v){ view=v; sel.clear(); renderAll(); try{ localStorage.setItem("cp-agenda-view",v); }catch(e){} }
+
+/* Enviar */
+function agendaText(){
+  const prev=view; view="mara";
+  const days=bookedDays(); let t="Agenda de captações · Corpo Perfeito\n";
+  const ch=changedCount();
+  t+= ch ? `${ch} ${ch===1?"alteração":"alterações"} à sugestão da Audrey\n` : "Igual à sugestão da Audrey\n";
+  days.forEach(d=>{ const info=dayInfo(d);
+    t+=`\n${short(d)} · ${info.vidDay?"videógrafo (pago pela Mara diretamente)":info.price?"visita adicional "+eur(info.price):"captação de novembro, incluída no plano"}\n`;
+    info.its.forEach(i=>{ t+=`- ${i.n}${(SUG[i.id]||null)!==d?" (alterado)":""}\n`; });
+    if(info.vidDay) t+=`  ${VID_NOTE}\n`;
+    const pl=planFor(info.its); if(pl){ t+=`${pl.t}:\n`; pl.steps.forEach(([h,x])=>{ t+=`  ${h}: ${x}\n`; }); t+=`  ${pl.prep}\n`; }
+  });
+  const miss=ITEMS.filter(i=>i.g!=="opt" && !state.assign[i.id]);
+  if(miss.length) t+=`\nSem dia: ${miss.map(i=>i.n).join(", ")}\n`;
+  const tot=days.reduce((a,d)=>a+dayInfo(d).price,0);
+  t+=`\nTotal adicional: ${eur(tot)} (videógrafo à parte)\n`;
+  if(state.notas) t+=`\nObservações: ${state.notas}\n`;
+  view=prev; return t;
+}
+function openSend(){
+  const box=document.getElementById("sendBox"), txt=agendaText();
+  document.getElementById("sendText").value=txt;
+  document.getElementById("waLink").href="https://wa.me/?text="+encodeURIComponent(txt);
+  box.hidden=false; box.scrollIntoView({block:"nearest",behavior:"smooth"});
+}
+
+/* Interação */
+document.addEventListener("click",e=>{
+  const vb=e.target.closest("[data-view]"); if(vb){ setView(vb.dataset.view); return; }
+  const rm=e.target.closest("[data-remove]");
+  if(rm){ e.stopPropagation(); place([rm.dataset.remove], null); return; }
+  const inc=e.target.closest("[data-inc]"); if(inc){ setInc(inc.dataset.inc); return; }
+  const bk=e.target.closest("[data-back]"); if(bk){ place([bk.dataset.back], SUG[bk.dataset.back]); return; }
+  const bd=e.target.closest("[data-backday]"); if(bd){ place(ITEMS.filter(i=>SUG[i.id]===bd.dataset.backday).map(i=>i.id), bd.dataset.backday); return; }
+  const card=e.target.closest(".card");
+  if(card){ if(view==="sug") return; const id=card.dataset.id; sel.has(id)?sel.delete(id):sel.add(id); renderBank(); renderSelbar(); return; }
+  const day=e.target.closest(".day.open");
+  if(day && sel.size){ place([...sel], day.dataset.day); }
+});
+document.addEventListener("keydown",e=>{
+  const day=e.target.closest&&e.target.closest(".day.open");
+  if(day && (e.key==="Enter"||e.key===" ") && sel.size){ e.preventDefault(); place([...sel], day.dataset.day); }
+});
+document.getElementById("selClear").onclick=()=>{ sel.clear(); renderBank(); renderSelbar(); };
+document.getElementById("selUnassign").onclick=()=>place([...sel], null);
+let resetArmed=false;
+document.getElementById("btnReset").onclick=e=>{
+  const b=e.currentTarget;
+  if(!resetArmed){ resetArmed=true; b.textContent="Confirmar: repor sugestão"; setTimeout(()=>{ resetArmed=false; b.textContent="Repor a sugestão"; },3500); return; }
+  resetArmed=false; b.textContent="Repor a sugestão";
+  state.assign={...SUG}; state.visitaNov=null; state.custom=false; renderAll(); persist();
+};
+document.getElementById("btnSend").onclick=()=>{ if(view==="sug") setView("mara"); openSend(); };
+document.getElementById("btnCopy").onclick=e=>{
+  const b=e.currentTarget, ta=document.getElementById("sendText"), txt=ta.value;
+  const fallback=()=>{ ta.focus(); ta.select(); b.textContent="Texto selecionado"; setTimeout(()=>b.textContent="Copiar texto",1800); };
+  try{ navigator.clipboard.writeText(txt).then(()=>{ b.textContent="Copiado"; setTimeout(()=>b.textContent="Copiar texto",1800); }, fallback); }catch(err){ fallback(); }
+};
+
+let dragIds=[];
+document.addEventListener("dragstart",e=>{
+  const src=e.target.closest(".card, .chip"); if(!src || view==="sug") return;
+  const id=src.dataset.id;
+  dragIds = src.classList.contains("card") && sel.has(id) ? [...sel] : [id];
+  try{ e.dataTransfer.setData("text/plain", dragIds.join(",")); e.dataTransfer.effectAllowed="move"; }catch(err){}
+  src.classList.add("dragging");
+});
+document.addEventListener("dragend",e=>{ const s=e.target.closest&&e.target.closest(".dragging"); if(s) s.classList.remove("dragging"); document.querySelectorAll(".day.over").forEach(d=>d.classList.remove("over")); });
+document.addEventListener("dragover",e=>{ const day=e.target.closest(".day.open"); if(day){ e.preventDefault(); day.classList.add("over"); } });
+document.addEventListener("dragleave",e=>{ const day=e.target.closest(".day.open"); if(day && !day.contains(e.relatedTarget)) day.classList.remove("over"); });
+document.addEventListener("drop",e=>{
+  const day=e.target.closest(".day.open");
+  const bank=e.target.closest("#bank");
+  if(!day && !bank) return;
+  e.preventDefault();
+  let ids=dragIds; try{ const t=e.dataTransfer.getData("text/plain"); if(t) ids=t.split(","); }catch(err){}
+  place(ids, day?day.dataset.day:null);
+});
+document.getElementById("bank").addEventListener("dragover",e=>e.preventDefault());
+
+let noteTimer;
+document.getElementById("notas").addEventListener("input",e=>{
+  state.notas=e.target.value; clearTimeout(noteTimer);
+  noteTimer=setTimeout(persist,700);
+});
+
+/* Arranque */
+function load(v){
+  if(!v) return;
+  if(v.custom && v.assign && typeof v.assign==="object") state.assign=Object.fromEntries(Object.entries(v.assign).filter(([k,d])=>BY_ID[k] && typeof d==="string"));
+  else state.assign={...SUG};
+  state.custom=!!v.custom; state.visitaNov=v.visitaNov||null; state.notas=v.notas||"";
+}
+try{ load(JSON.parse(localStorage.getItem("cp-agenda-v2")||"null")); }catch(e){}
+renderAll();
+
+(async()=>{
+  try{ db = (window.claude && window.claude.use) ? await window.claude.use("db") : null; }catch(e){ db=null; }
+  if(!db){ mode="local"; idleStatus(); return; }
+  mode="db"; setStatus("A sincronizar");
+  db.doc("config/geral").onSnapshot(s=>{
+    if(s.exists) load(s.data()); if(!pending) idleStatus(); renderAll();
+  }, ()=>setStatus("Ligação interrompida · recarregue a página", true));
+})();
+</script>
+
+
+</body>
+</html>
