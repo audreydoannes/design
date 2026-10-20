@@ -1,0 +1,4 @@
+Coloque aqui os logos dos clientes em PNG (fundo transparente), com estes nomes:
+acaraje-bahia.png, cabelo-liso-brasil.png, corpo-perfeito.png, rota-2-arcos.png,
+md-beauty-studio.png, natures-senses.png, villa-1128.png
+Enquanto um ficheiro não existir, a página mostra o nome da marca escrito.
