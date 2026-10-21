@@ -500,6 +500,18 @@ td.t1{color:var(--ok)}
 .dock .btn{background:var(--on-nude);color:var(--nude);border-color:var(--on-nude);min-height:44px;padding:8px 18px;font-size:.88rem}
 @media (min-width:901px){.dock{display:none}}
 
+/* pack details (collapsible) */
+.pack-more{display:grid;gap:10px;margin-top:24px}
+.pmore{background:var(--surface);border:1px solid var(--line);border-radius:18px}
+.pmore summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;min-height:56px}
+.pmore summary::-webkit-details-marker{display:none}
+.pmore summary b{display:block;font-family:var(--head);font-weight:700;font-size:1rem}
+.pmore summary small{display:block;color:var(--muted);font-size:.84rem;margin-top:2px}
+.pmore summary .ico{width:22px;height:22px;flex:none;color:var(--nude);transition:transform .3s}
+.pmore[open] summary .ico{transform:rotate(180deg)}
+.pmore summary:focus-visible{outline:2px solid var(--nude);outline-offset:2px;border-radius:18px}
+.more-body{padding:0 20px 20px}
+.more-body .incl,.more-body .notes,.more-body .note.boost{margin-bottom:0}
 /* process / faq */
 .process{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
 @media (max-width:860px){.process{grid-template-columns:1fr 1fr}}
@@ -636,36 +648,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="sec-head">
       <span class="eyebrow">Packs de redes sociais</span>
       <h2 class="h2">Você cuida do negócio, <em>eu cuido</em> do seu Instagram.</h2>
-      <p class="lede">Conteúdo para Instagram, Facebook e TikTok. Todos os packs incluem tudo isto. A diferença entre eles é quantas publicações a sua marca recebe por mês.</p>
+      <p class="lede">Conteúdo para Instagram, Facebook e TikTok. Todos os packs incluem o mesmo serviço completo. A diferença é quantas publicações a sua marca recebe por mês.</p>
       <div class="platforms"><span class="pill">Instagram</span><span class="pill">Facebook</span><span class="pill">TikTok</span></div>
-    </div>
-
-    <ul class="incl">
-      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Organização da bio do perfil</li>
-      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Criação das redes sociais, se ainda não tiver</li>
-      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Google Meu Negócio, se tiver espaço físico</li>
-      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Planejamento das postagens do mês</li>
-      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Legendas pensadas para engajar e vender</li>
-      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Criação das artes mensais e postagens</li>
-      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Acompanhamento da conta durante a gestão</li>
-      <li class="hl"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Vídeos para reels editados por mim</li>
-      <li class="hl"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Captação por mês (até 3h) com câmera e microfone profissional. No Pack Diamante são 2</li>
-    </ul>
-
-    <div class="notes">
-      <div class="note contract">
-        <div class="big3">3<small>meses</small></div>
-        <div><h3>Contrato de 3 meses</h3><p>É o período em que a rede social começa a performar de verdade. Menos do que isso não dá para ver resultado concreto.</p></div>
-      </div>
-      <div class="note special">
-        <div class="big3" id="discBig">−10%</div>
-        <div><h3>Condição especial</h3><p id="discText">Desconto no 1º mês para quem fecha o contrato de 3 meses de qualquer pack.</p></div>
-      </div>
-    </div>
-
-    <div class="note boost">
-      <svg class="ico" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>
-      <div><h3>Quer alcançar mais gente? Eu faço o impulsionamento.</h3><p>Os anúncios são opcionais. Você escolhe quanto quer investir a mais por mês e eu cuido da campanha para o seu conteúdo chegar a mais pessoas.</p></div>
     </div>
 
     <div class="explorer" id="explorer">
@@ -708,6 +692,49 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
           <tr><td>Redes</td><td data-col="0" colspan="4" style="text-align:center">Instagram, Facebook e TikTok em todos os packs</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="pack-more">
+      <details class="pmore">
+        <summary><span><b>O que todos os packs incluem</b><small>9 itens, do planejamento à captação</small></span><svg class="ico" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="more-body">
+          <ul class="incl">
+      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Organização da bio do perfil</li>
+      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Criação das redes sociais, se ainda não tiver</li>
+      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Google Meu Negócio, se tiver espaço físico</li>
+      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Planejamento das postagens do mês</li>
+      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Legendas pensadas para engajar e vender</li>
+      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Criação das artes mensais e postagens</li>
+      <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Acompanhamento da conta durante a gestão</li>
+      <li class="hl"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Vídeos para reels editados por mim</li>
+      <li class="hl"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Captação por mês (até 3h) com câmera e microfone profissional. No Pack Diamante são 2</li>
+    </ul>
+        </div>
+      </details>
+      <details class="pmore">
+        <summary><span><b>Contrato e condição especial</b><small>3 meses, com 10% de desconto no 1º mês</small></span><svg class="ico" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="more-body">
+          <div class="notes">
+      <div class="note contract">
+        <div class="big3">3<small>meses</small></div>
+        <div><h3>Contrato de 3 meses</h3><p>É o período em que a rede social começa a performar de verdade. Menos do que isso não dá para ver resultado concreto.</p></div>
+      </div>
+      <div class="note special">
+        <div class="big3" id="discBig">−10%</div>
+        <div><h3>Condição especial</h3><p id="discText">Desconto no 1º mês para quem fecha o contrato de 3 meses de qualquer pack.</p></div>
+      </div>
+    </div>
+        </div>
+      </details>
+      <details class="pmore">
+        <summary><span><b>Impulsionamento (opcional)</b><small>anúncios para chegar a mais gente</small></span><svg class="ico" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="more-body">
+          <div class="note boost">
+      <svg class="ico" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>
+      <div><h3>Quer alcançar mais gente? Eu faço o impulsionamento.</h3><p>Os anúncios são opcionais. Você escolhe quanto quer investir a mais por mês e eu cuido da campanha para o seu conteúdo chegar a mais pessoas.</p></div>
+    </div>
+        </div>
+      </details>
     </div>
 
     <div class="quiz" id="quiz">
